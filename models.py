@@ -32,7 +32,7 @@ class Validate(abc.ABC, AutoStorage):
 
 
 class CharField(Validate):
-    """ Возвращает проверенное значение или ValueError"""
+    """Строковое поле для имени, фамилии, отчества"""
 
     def validate(self, instance, value):
         char = re.compile(r"^([А-ЯЁ][а-яё,.'-]+|[A-Z][a-z,.'-]+)$")
@@ -43,7 +43,7 @@ class CharField(Validate):
 
 
 class EmailField(Validate):
-    """ Возвращает проверенное значение или ValueError"""
+    """ Email"""
 
     def validate(self, instance, value):
         email = re.compile(r"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*"
@@ -56,7 +56,7 @@ class EmailField(Validate):
 
 
 class PhoneField(Validate):
-    """ Возвращает проверенное значение или ValueError"""
+    """ Номер телефона"""
 
     def validate(self, instance, value):
         phone = re.compile(r"^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$")
@@ -67,7 +67,7 @@ class PhoneField(Validate):
 
 
 class DateField(Validate):
-    """ Возвращает проверенное значение или ValueError"""
+    """ Дата """
 
     def validate(self, instance, value):
         date = re.compile(r"^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]|(?:Jan|Mar|May|Jul|Aug|Oct|Dec)))\1|(?:(?:29|30)"
@@ -79,4 +79,4 @@ class DateField(Validate):
         if date.fullmatch(value):
             return value
         else:
-            raise ValueError('Только буквы')
+            raise ValueError('Вводите дату а фофрмате dd.mm.yyyy')

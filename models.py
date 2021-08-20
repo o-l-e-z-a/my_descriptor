@@ -79,4 +79,4 @@ class DateField(Validate):
         if date.fullmatch(value):
             return value
         else:
-            raise ValueError('Вводите дату а фофрмате dd.mm.yyyy')
+            raise ValueError('Вводите дату в формате dd.mm.yyyy')

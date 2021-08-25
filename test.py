@@ -26,7 +26,7 @@ class MyTestCase(unittest.TestCase):
             user = User(
                 last_name='Oleg',
                 first_name='Oleg',
-                email='mail@.ru',
+                email='mail@yandex.ru',
                 date_birthday='22.13.2220',
                 telephone='+79812695017')
 
